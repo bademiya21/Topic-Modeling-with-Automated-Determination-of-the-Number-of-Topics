@@ -157,9 +157,6 @@ term_count_table <-
   )
 kable(term_count_table[1:25,]) #show first 25 rows
 ```
-
-
-
 Term             Count
 --------------  ------
 work               161
