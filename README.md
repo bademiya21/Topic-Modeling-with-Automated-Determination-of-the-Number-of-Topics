@@ -157,33 +157,33 @@ term_count_table <-
   )
 kable(term_count_table[1:25,]) #show first 25 rows
 ```
-Term             Count
---------------  ------
-work               161
-people             143
-data               141
-project            128
-approach           121
-management         121
-problem            117
-time               101
-question            98
-system              98
-point               96
-things              96
-enterprise          93
-change              88
-systems             87
-important           84
-based               82
-business            82
-process             78
-decision            78
-organisations       75
-organization        70
-make                68
-good                67
-ibis                66
+|Term          |Count|
+|--------------|------|
+|work           |    161|
+|people         |    143|
+|data           |    141|
+|project        |    128|
+|approach       |    121|
+|management     |    121|
+|problem        |    117|
+|time           |    101|
+|question       |     98|
+|system         |     98|
+|point          |     96|
+|things         |     96|
+|enterprise     |     93|
+|change         |     88|
+|systems        |     87|
+|important      |     84|
+|based          |     82|
+|business       |     82|
+|process        |     78|
+|decision       |     78|
+|organisations  |     75|
+|organization   |     70|
+|make           |     68|
+|good           |     67|
+|ibis           |     66|
 
 ## LDA Analysis
 As there is a range of topic numbers to analyze, each topic modeling process can be processed in a parallel manner as they are independent of each other. So here, I make use of all the cores in the system to speed up the analysis. Once the analysis is done, the log-likelihoods are extracted from every model and used to compute the harmonic means. The harmonic means are then plotted (this is for visualization purposes). The index at which the harmonic mean has a maximum values is the optimum number of topics for the data set. Using the index found, the topic model is extracted out for visualization.
