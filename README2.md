@@ -1,11 +1,5 @@
----
-title: "Topic Modeling with Automated Determination of the Number of Topics"
-output: 
-  html_document:
-    keep_md: true
----
 
-
+##Topic Modeling with Automated Determination of the Number of Topics
 
 This post uses R markdown to explain my version of topic modelling using Latent Dirichlet Allocation (LDA) which finds the best number of topics for a set of documents using log-likelihoods and computation of harmonic means (this approach has been adapted from [here](https://stackoverflow.com/questions/21355156/topic-models-cross-validation-with-loglikelihood-or-perplexity/21394092)). Specifically, this post
 
