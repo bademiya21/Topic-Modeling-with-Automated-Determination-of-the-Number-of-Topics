@@ -208,8 +208,9 @@ FindTopicsNumber_plot(result)
 
 ```r
 topic_num <-
-  result$topics[min(which.max(result$Deveaud2014),
-                    which.min(result$CaoJuan2009))]
+  result$topics[min(which.min(result$CaoJuan2009),
+                    which.min(result$Arun2010),
+                    which.max(result$Griffiths2004))]
                     
 print(paste("The optimum number of topics for the data set is ",topic_num))
 ```
