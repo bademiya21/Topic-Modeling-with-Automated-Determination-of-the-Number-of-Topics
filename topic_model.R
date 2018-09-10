@@ -1,5 +1,4 @@
 rm(list = ls()) #clear the variables (just in case)
-
 this_dir <- dirname(parent.frame(2)$ofile) # find the directory from which the R Script is being sourced
 setwd(this_dir)
 
@@ -8,6 +7,7 @@ library(tm)
 library(slam)
 #load topic models library
 library(topicmodels)
+library(ldatuning)
 library(rjson)
 library(snow)
 library(parallel)
@@ -16,15 +16,6 @@ library(stringi)
 #FOr topic visualization
 library(LDAvis)
 library(dplyr)
-
-harmonicMean <- function(logLikelihoods, precision = 2000L) {
-  library("Rmpfr")
-  llMed <- median(logLikelihoods)
-  as.double(llMed - log(mean(exp(
-    -mpfr(logLikelihoods,
-          prec = precision) + llMed
-  ))))
-}
 
 #define all stopwords
 genericStopwords <- c(
@@ -46,6 +37,7 @@ seed <-
 best <- TRUE
 burnin <- 5000
 iter <- 10000
+thin <- 10000
 keep <- 100
 
 #Range of topic numbers to search for optimum number
@@ -110,67 +102,49 @@ term_count_table <-
 
 #Run LDA using Gibbs sampling
 ##Calculate the number of cores
-no_cores <- detectCores()
-cl <- makeCluster(no_cores)
-clusterExport(
-  cl,
-  list(
-    "dtm",
-    "sequ",
-    "nstart",
-    "seed",
-    "best",
-    "burnin",
-    "iter",
-    "keep"
+no_cores <- detectCores() - 1
+result <- FindTopicsNumber(
+  dtm,
+  topics = sequ,
+  metrics = c("Griffiths2004", "CaoJuan2009", "Arun2010"),
+  method = "Gibbs",
+  control = list(
+    nstart = nstart,
+    seed = seed,
+    best = best,
+    burnin = burnin,
+    iter = iter,
+    keep = keep,
+    thin = thin
+  ),
+  mc.cores = no_cores,
+  verbose = TRUE
+)
+
+FindTopicsNumber_plot(result)
+
+topic_num <-
+  result$topics[min(which.min(result$CaoJuan2009),
+                    which.min(result$Arun2010),
+                    which.max(result$Griffiths2004))]
+ldaOut <- LDA(
+  dtm,
+  k = topic_num,
+  method = "Gibbs",
+  control = list(
+    nstart = nstart,
+    seed = seed,
+    best = best,
+    burnin = burnin,
+    iter = iter,
+    keep = keep,
+    thin = thin
   )
 )
 
-#Run LDA through all the numbers in the range and store all the models found in fitted_many
-fitted_many <- clusterApplyLB(
-  cl,
-  sequ,
-  fun = function(i) {
-    library(topicmodels)
-    LDA(
-      dtm,
-      k = i,
-      method = "Gibbs",
-      control = list(
-        nstart = nstart,
-        seed = seed,
-        best = best,
-        burnin = burnin,
-        iter = iter,
-        keep = keep
-      )
-    )
-  }
-)
-stopCluster(cl)
-
-#extract logliks from each topic
-#where keep indicates that every keep iteration the log-likelihood is evaluated and stored. This returns all log-likelihood values including burnin, i.e., these need to be omitted before calculating the harmonic mean:
-logLiks_many <-
-  lapply(fitted_many, function(L)
-    L@logLiks[-c(1:(burnin / keep))])
-
-#compute harmonic means
-hm_many <- sapply(logLiks_many, function(h)
-  harmonicMean(h))
-
-#inspect
-plot(sequ, hm_many, type = "l")
-
-#compute optimum number of topics & extract relevant topic models
-ind <- which.max(hm_many)
-print(paste("The optimum number of topics for the data set is ",sequ[ind]))
-ldaOut <- fitted_many[ind]
-ldaOut <- ldaOut[[1]]
-
 ##Prepare data for Visualization
 #Calculate the number of cores
-no_cores <- detectCores()
+no_cores <- detectCores() - 1
 cl <- makeCluster(no_cores)
 
 #Find required quantities
