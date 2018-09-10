@@ -1,7 +1,7 @@
 
 # Topic Modeling with Automated Determination of the Number of Topics
 
-This post uses R markdown to explain my version of topic modelling using Latent Dirichlet Allocation (LDA) which finds the best number of topics for a set of documents using log-likelihoods and computation of harmonic means (this approach has been adapted from [here](https://stackoverflow.com/questions/21355156/topic-models-cross-validation-with-loglikelihood-or-perplexity/21394092)). Specifically, this post
+This post uses R markdown to explain my version of topic modelling using Latent Dirichlet Allocation (LDA) which finds the best number of topics for a set of documents (this approach has been adapted from [here](https://cran.r-project.org/web/packages/ldatuning/vignettes/topics.html)). Although the link shows 4 metrics that can be used, I only focus on 3 - "Griffiths2004", "CaoJuan2009" and "Arun2010". "Deveaud2014" does not provide any insight for the dataset used in this example as it decreases montonically throughout the sequence. Specifically, this post
 
 *   discusses getting started with the necessary libraries needed for the analysis
 *   provides the initiaization of several variables needed and loads the necessary dataset
@@ -21,6 +21,7 @@ library(tm)
 library(slam)
 #load topic models library
 library(topicmodels)
+library(ldatuning)
 library(rjson)
 library(snow)
 library(parallel)
@@ -31,20 +32,6 @@ library(LDAvis)
 library(dplyr)
 #this library is for presenting outputs in a nice dignified way
 library(knitr)
-```
-
-Here, the harmonic mean function for a lognormal distribution is defined for analysis later.
-
-
-```r
-harmonicMean <- function(logLikelihoods, precision = 2000L) {
-  library("Rmpfr")
-  llMed <- median(logLikelihoods)
-  as.double(llMed - log(mean(exp(
-    -mpfr(logLikelihoods,
-          prec = precision) + llMed
-  ))))
-}
 ```
 
 ## Initialization of variables
@@ -72,6 +59,7 @@ seed <-
 best <- TRUE
 burnin <- 5000
 iter <- 10000
+thin <- 10000
 keep <- 100
 
 #Range of topic numbers to search for optimum number
@@ -186,88 +174,68 @@ kable(term_count_table[1:25,]) #show first 25 rows
 |ibis           |     66|
 
 ## LDA Analysis
-As there is a range of topic numbers to analyze, each topic modeling process can be processed in a parallel manner as they are independent of each other. So here, I make use of all the cores in the system to speed up the analysis. Once the analysis is done, the log-likelihoods are extracted from every model and used to compute the harmonic means. The harmonic means are then plotted (this is for visualization purposes). The index at which the harmonic mean has a maximum values is the optimum number of topics for the data set. Using the index found, the topic model is extracted out for visualization.
+As there is a range of topic numbers to analyze, each topic modeling process can be processed in a parallel manner as they are independent of each other. So here, I make use of the ldatuning package to analyze the sequence of topic numbers which run using parallel processing. Once the analysis is done, using the computed metrics, we find what is the optimum topic number for the data set. The plot for the metrics is as below. The lowest index at which the metrics have a maximum/minimum values is found. Using the index found, the topic model is re-computed for visualization.
 
 
 ```r
 #Run LDA using Gibbs sampling
 ##Calculate the number of cores
-no_cores <- detectCores()
-cl <- makeCluster(no_cores)
-clusterExport(
-  cl,
-  list(
-    "dtm",
-    "sequ",
-    "nstart",
-    "seed",
-    "best",
-    "burnin",
-    "iter",
-    "keep"
-  )
+no_cores <- detectCores() - 1
+result <- FindTopicsNumber(
+  dtm_query,
+  topics = sequ,
+  metrics = c("CaoJuan2009", "Deveaud2014"),
+  method = "Gibbs",
+  control = list(
+    nstart = nstart,
+    seed = seed,
+    best = best,
+    burnin = burnin,
+    iter = iter,
+    keep = keep,
+    thin = thin
+  ),
+  mc.cores = no_cores,
+  verbose = TRUE
 )
-
-#Run LDA through all the numbers in the range and store all the models found in fitted_many
-fitted_many <- clusterApplyLB(
-  cl,
-  sequ,
-  fun = function(i) {
-    library(topicmodels)
-    LDA(
-      dtm,
-      k = i,
-      method = "Gibbs",
-      control = list(
-        nstart = nstart,
-        seed = seed,
-        best = best,
-        burnin = burnin,
-        iter = iter,
-        keep = keep
-      )
-    )
-  }
-)
-stopCluster(cl)
-
-#extract logliks from each topic
-#where keep indicates that every keep iteration the log-likelihood is evaluated and stored. This returns all log-likelihood values including burnin, i.e., these need to be omitted before calculating the harmonic mean:
-logLiks_many <-
-  lapply(fitted_many, function(L)
-    L@logLiks[-c(1:(burnin / keep))])
-
-#compute harmonic means
-hm_many <- sapply(logLiks_many, function(h)
-  harmonicMean(h))
 ```
 
-
 ```r
-#inspect
-plot(sequ, hm_many, type = "l")
+FindTopicsNumber_plot(result)
 ```
 
 ![](README_figs/README-unnamed-chunk-7-1.png)<!-- -->
 
+```r
+topic_num <-
+  result$topics[min(which.max(result$Deveaud2014),
+                    which.min(result$CaoJuan2009))]
+                    
+print(paste("The optimum number of topics for the data set is ",topic_num))
+```
+
+```
+[1] "The optimum number of topics for the data set is  16"
+```
 
 ```r
-#compute optimum number of topics & extract relevant topic models
-ind <- which.max(hm_many)
-print(paste("The optimum number of topics for the data set is ",sequ[ind]))
+ldaOut <- LDA(
+  dtm_query,
+  k = topic_num,
+  method = "Gibbs",
+  control = list(
+    nstart = nstart,
+    seed = seed,
+    best = best,
+    burnin = burnin,
+    iter = iter,
+    keep = keep,
+    thin = thin
+  )
+)
 ```
-
-```
-[1] "The optimum number of topics for the data set is  17"
-```
-
-```r
-ldaOut <- fitted_many[ind]
-ldaOut <- ldaOut[[1]]
-```
-
 ## Topic Visualization
-The visualization of topics is done using the *LDAvis* library. Once again, parallel processing is employed to speed up determining visualization parameters. The visualization parameters are saved in a json file which is then loaded via *serVis()* to create the interactive HTML files for visualization, You may view an example of the result at the following [link](https://www-drv.com/site/yf6iluuabcbqwj4lazddda/Vis/index.html). **Note:** Since LDA is unsupervised, the results may change everytime that the analysis is run. The results in the link is just an example of such an instance.
+The visualization of topics is done using the *LDAvis* library. Once again, parallel processing is employed to speed up determining visualization parameters. The visualization parameters are saved in a json file which is then loaded via *serVis()* to create the interactive HTML files for visualization, You may view an example of the result at the following [link](https://yf6iluuabcbqwj4lazddda-on.drv.tw/Vis_1/index.html). **Note:** Since LDA is unsupervised, the results may change everytime that the analysis is run. The results in the link is just an example of such an instance.
 
 
 ```r
@@ -304,3 +272,4 @@ serVis(
   out.dir = "Vis"
 )
 ```
+Further improvements to this code will include using POS (Part-of-Speech) tagging to remove stopwords more effectively. Lemmatization will also be included. The approach needs to be evaluated for all the metrics and some judgment is needed to decide which metrics are useful for the dataset and which aren't.
