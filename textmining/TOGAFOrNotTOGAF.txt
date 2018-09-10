@@ -1,0 +1,42 @@
+TOGAF or not TOGAF… but is that the question?
+
+“The ‘Holy Grail’ of effective collaboration is creating shared understanding, which is a precursor to shared commitment.” – Jeff Conklin.
+
+“Without context, words and actions have no meaning at all.” – Gregory Bateson.
+
+I spent much of last week attending a class on the TOGAF Enterprise Architecture (EA) framework.  Prior experience with  IT frameworks such as PMBOK and ITIL had taught me that much depends on the instructor – a good one can make the material come alive whereas a not-so-good one can make it an experience akin to watching grass grow. I needn’t have worried: the instructor was superb, and my classmates, all of whom are experienced IT professionals / architects, livened up the proceedings through comments and discussions both in class and outside it. All in all, it was a thoroughly enjoyable and educative experience, something I cannot say for many of the professional courses I have attended.
+
+One of the things about that struck me about TOGAF is the way in which the components of the framework hang together to make a coherent whole (see the introductory chapter of the framework for an overview). To be sure, there is a lot of detail within those components, but there is a certain abstract elegance – dare I say, beauty – to the framework.
+
+That said TOGAF is (almost) entirely silent on the following question which I addressed in a post late last year:
+
+Why is Enterprise Architecture so hard to get right?
+
+Many answers have been offered. Here are some, extracted from articles published by IT vendors and consultancies:
+
+Lack of sponsorship
+Not engaging the business
+Inadequate communication
+Insensitivity to culture / policing mentality
+Clinging to a particular tool or framework
+Building an ivory tower
+Wrong choice of architect
+(Note: the above points are taken from this article and this one)
+
+It is interesting that the first four issues listed are related to the fact that different stakeholders in an organization have vastly different perspectives on what an enterprise architecture initiative should achieve.  This lack of shared understanding is what makes enterprise architecture a socially complex problem rather than a technically difficult one. As Jeff Conklin points out in this article, problems that are technically complex will usually have a solution that will be acceptable to all stakeholders, whereas socially complex problems will not.  Sending a spacecraft to Mars is an example of the former whereas an organization-wide ERP  (or EA!) project or (on a global scale) climate change are instances of the latter.
+
+Interestingly, even the fifth and sixth points in the list above – framework dogma and retreating to an ivory tower – are usually consequences of the inability to manage social complexity. Indeed, that is precisely the point made in the final item in the list: enterprise architects are usually selected for their technical skills rather than their ability to deal with ambiguities that are characteristic of social complexity.
+
+TOGAF offers enterprise architects a wealth of tools to manage technical complexity. These need to be complemented by a suite of techniques to reconcile worldviews of different stakeholder groups.  Some examples of such techniques are Soft Systems Methodology, Polarity Management, and Dialogue Mapping. I won’t go into details of these here, but if you’re interested, please have a look at my posts entitled, The Approach – a dialogue mapping story and The dilemmas of enterprise IT for brief introductions to the latter two techniques via IT-based examples.
+
+<Advertisement > Better yet, you could check out Chapter 9 of my book for a crash course on Soft Systems Methodology and Polarity Management and Dialogue Mapping, and the chapters thereafter for a deep dive into Dialogue Mapping </Advertisement>.
+
+Apart from social complexity, there is the problem of context – the circumstances that shape the unique culture and features of an organization.  As I mentioned in my introductory remarks, the framework is abstract – it applies to an ideal organization in which things can be done by the book. But such an organization does not exist!  Aside from unique people-related and political issues, all organisations have their own quirks and unique features that distinguish them from other organisations, even within the same domain. Despite superficial resemblances, no two pharmaceutical companies are alike. Indeed, the differences are the whole point because they are what make a particular organization what it is. To paraphrase the words of the anthropologist, Gregory Bateson, the differences are what make a difference.
+
+Some may argue that the framework acknowledges this and encourages, even exhorts, people to tailor the framework to their needs. Sure, the word “tailor” and its variants appear almost 700 times in the version 9.1 of the standard but, once again, there is no advice offered on how this tailoring should be done.  And one can well understand why: it is impossible to offer any sensible advice if one doesn’t know the specifics of the organization, which includes its context.
+
+On a related note, the TOGAF framework acknowledges that there is a hierarchy of architectures ranging from the general (foundation) to the specific (organization). However despite the acknowledgement of diversity,   in practice TOGAF tends to focus on similarities between organisations. Most of the prescribed building blocks and processes are based on assumed commonalities between the structures and processes in different organisations.   My point is that, although similarities are important, architects need to focus on differences. These could be differences between the organization they are working in and the TOGAF ideal, or even between their current organization and others that they have worked with in the past (and this is where experience comes in really handy). Cataloguing and understanding these unique features –  the differences that make a difference – draws attention to precisely those issues that can cause heartburn and sleepless nights later.
+
+I have often heard arguments along the lines of “80% of what we do follows a standard process, so it should be easy for us to standardize on a framework.” These are famous last words, because some of the 20% that is different is what makes your organization unique, and is therefore worthy of attention. You might as well accept this upfront so that you get a realistic picture of the challenges early in the game.
+
+To sum up, frameworks like TOGAF are abstractions based on an ideal organization; they gloss over social complexity and the unique context of individual organisations.  So, questions such as the one posed in the title of this post are akin to the pseudo-choice between Coke and Pepsi, for the real issue is something else altogether. As Tom Graves tells us in his wonderful blog and book, the enterprise is a story rather than a structure, and its architecture an ongoing sociotechnical drama.

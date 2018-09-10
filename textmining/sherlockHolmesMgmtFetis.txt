@@ -1,0 +1,112 @@
+Sherlock Holmes and the case of the management fetish
+
+
+As narrated by Dr. John Watson, M.D.…
+
+As my readers are undoubtedly aware,  my friend Sherlock Holmes is widely feted for his powers of logic and deduction.  With all due modesty, I can claim to have played a small part in publicizing his considerable talents, for I have a sense for what will catch the reading public’s fancy and, perhaps more important, what will not. Indeed, it could be argued  that his fame is in no small part due to the dramatic nature of the exploits which I have chosen to publicise.
+
+Management consulting, though far more lucrative than criminal investigation, is not nearly as exciting.  Consequently my work has become that much harder since Holmes reinvented himself as a management expert.  Nevertheless, I am firmly of the opinion that the long-standing myths  exposed by  his  recent work more than make up for any lack of suspense or drama.
+
+A little known fact is that many of Holmes’ insights into flawed management practices have come after the fact, by discerning common themes that emerged from different cases. Of course this makes perfect sense:  only after seeing the same (or similar) mistake occur in a variety of situations can one begin to perceive an underlying pattern.
+
+The conversation I had with him last night  is an excellent illustration of this point.
+
+—
+
+We were having dinner at Holmes’ Baker Street abode  when, apropos of nothing, he remarked, “It’s a strange thing, Watson, that our lives are governed by routine. For instance, it is seven in the evening, and here we are having dinner, much like we would on any other day.”
+
+“Yes, it is,” I said, intrigued by his remark.  Dabbing my mouth with a napkin, I put down my fork and waited for him to say more.
+
+He smiled. “…and do you think that is a good thing?”
+
+I thought about it for a minute before responding. “Well, we follow routine because we like…or need… regularity and predictability,” I said. “Indeed, as a medical man, I know well that our bodies have built in clocks that drive us to do things – such as eat and sleep – at regular intervals.  That apart, routines give us a sense of comfort and security in an unpredictable world. Even those who are adventurous have routines of their own. I don’t think we have a choice in the matter, it’s the way humans are wired.” I wondered where the conversation was going.
+
+Holmes cocked an eyebrow. “Excellent, Watson!” he said. “Our propensity for routine is quite possibly a consequence of our need for security and comfort ….but what about the usefulness of routines – apart from the sense of security we get from them?”
+
+“Hmmm…that’s an interesting question. I suppose a routine must have a benefit, or at least a perceived benefit…else it would not have been made into a routine.”
+
+“Possibly,” said Holmes, “ but let me ask you another question.  You remember the case of the failed projects do you not?”
+
+“Yes, I do,” I replied. Holmes’ abrupt conversational U-turns no longer disconcert me, I’ve become used to them over the years. I remembered the details of the case like it had happened yesterday…indeed I should, as it was I who wrote the narrative!
+
+“Did anything about the case strike you as strange?” he inquired.
+
+I mulled over the case, which (in hindsight) was straightforward enough. Here are the essential facts:
+
+The organization suffered from a high rate of project failure (about 70% as I recall). The standard prescription – project post-mortems followed by changes in processes aimed at addressing the top issues revealed – had failed to resolve the issue. Holmes’ insightful diagnosis was that the postmortems identified symptoms, not causes.  Therefore the measures taken to fix the problems didn’t work because they did not address the underlying cause. Indeed, the measures were akin to using brain surgery to fix a headache.  In the end, Holmes concluded that the failures were a consequence of flawed organizational structures and norms.
+
+Of course flawed structures and norms are beyond the purview of a mere project or  program manager. So Holmes’ diagnosis, though entirely correct, did not help Bryant (the manager who had consulted us).
+
+Nothing struck me as unduly strange as  went over the facts mentally. No,” I replied, “but what on earth does that have to do with routine?”
+
+He smiled. “I will explain presently, but I have yet another question for you before I do so.  Do you remember one of our earliest management consulting cases – the affair of the terminated PMO?”
+
+I replied in the affirmative.
+
+“Well then,  you see the common thread running through the two cases, don’t you?” Seeing my puzzled look, he added, “think about it for a minute, Watson, while I go and fetch dessert.”
+
+He went into the kitchen, leaving me to ponder his question.
+
+The only commonality I could see was the obvious one – both cases were related to the failure of PMOs. (Editor’s note: PMO = Project Management Office)
+
+He returned with dessert a few minutes later. “So, Watson,” he said as he sat down, “have you come up with anything?
+
+I told him what I thought.
+
+“Capital, Watson! Then you will, no doubt, have asked yourself the obvious next question. ”
+
+I saw what he was getting at. “Yes!  The question is: can this observation be generalised?  Do majority of PMOs fail? ”
+
+“Brilliant, Watson.  You are getting better at this by the day.” I know Holmes  does not intend to sound condescending, but the sad fact is that he often does.  “Let me tell you,” he continued, “Research   suggests that 50% of PMOs fail within three years of being set up. My hypothesis is that failure rate would be considerably higher if the timeframe is increased to five or seven years. What’s even more interesting is that there is a single overriding complaint about PMOs:  the majority of stakeholders surveyed felt that their PMOs are overly bureaucratic, and generally hinder project work.”
+
+“But isn’t that contrary to the aim of a  PMO – which, as I understand, is to facilitate project work?” I queried.
+
+“Excellent, my dear Watson. You are getting close to the heart of the matter.
+
+“I am?”  To be honest, I was a little lost.
+
+“Ah Watson, don’t tell me you do not see it,” said Holmes exasperatedly.
+
+“I’m afraid you’ll have to explain,” I replied curtly. Really, he could insufferable at times.
+
+“I shall do my best. You see, there is a fundamental contradiction between the stated mission and actual operation of a typical PMO.  In theory, they are supposed to facilitate projects, but as far as executive management is concerned this is synonymous with overseeing and controlling projects. What this means is that in practice, PMOs inevitably end up policing project work rather than facilitating it.”
+
+I wasn’t entirely convinced.  “May be the reason that  PMOs fail is that organisations do not implement them correctly,” I said.
+
+“Ah, the famous escape clause used by purveyors of best practices – if our best practice doesn’t work, it means you aren’t implementing it correctly. Pardon me while I choke on my ale, because that is utter nonsense.”
+
+“Why?”
+
+“Well, one would expect after so many years, these so-called implementation errors would have been sorted out. Yet we see the same poor outcomes over and over again,” said Holmes.
+
+“OK,  but then why are PMOs are still so popular with management?”
+
+“Now we come to the crux of matter, Watson,” he said, a tad portentously, “They are popular for reasons we spoke of at the start of this conversation – comfort and security.”
+
+“Comfort and security? I have no idea what you’re talking about.”
+
+“Let me try explaining this in another way,” he said. “When you were a small child, you must have had some object that you carried around everywhere…a toy, perhaps…did you not?”
+
+“I’m not sure I should tell you this Holmes  but, yes, I had a blanket”
+
+“A security blanket, I would never have guessed, Watson,” smiled Holmes. “…but as it happens that’s a perfect example because PMOs and the methodologies they enforce are  security blankets. They give executives and frontline managers a sense that they are doing something concrete and constructive to manage uncertainty…even though they actually aren’t.   PMOs are popular , not because they work (and indeed, we’ve seen they don’t)  but because they help managers contain their anxiety about whether things will turn out right. I would not be exaggerating if I said that  PMOs and the methodologies they evangelise are akin to lucky charms or fetishes.”
+
+“That’s a strong a statement to make on rather slim grounds,” I said dubiously.
+
+“Is it? Think about it, Watson,” he shot back, with a flash of irritation. “Many (though I should admit, not all) PMOs and methodologies prescribe excruciatingly detailed procedures to follow and templates to fill when managing projects. For many (though again, not all) project managers, managing a project is synonymous with following these rituals. Such managers attempt to force-fit  reality into standardised procedures and documents. But tell me, Watson – how can such project management by ritual work  when no two projects are the same?”
+
+“Hmm….”
+
+“That is not all, Watson,” he continued, before I could respond, “PMOs and methodologies enable people to live in a fantasy world where everything seems to be under control. Methodology fetishists will not see the gap between their fantasy world and reality, and will therefore miss opportunities to learn. They follow rituals that give them security and an illusion of efficiency, but at the price of a genuine engagement with people and projects.”
+
+“ I’ll have to think about it,” I said.
+
+“You do that,” he replied , as he pushed back his chair and started to clear the table. Unlike him, I had a lot more than dinner to digest. Nevertheless, I rose to help him as I do every day.
+
+Evening conversations at 221B Baker Street are seldom boring. Last night was no exception.
+
+—
+
+Acknowledgement:
+
+This tale was inspired David Wastell’s brilliant paper, The fetish of technique: methodology as social defence (abstract only).
