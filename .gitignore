@@ -1,0 +1,15 @@
+**/Topic_Model_cache/*
+determine\ optimal\ number\ of\ topics\ v2.R
+determine\ optimal\ number\ of\ topics\ v3.R
+determine\ optimal\ number\ of\ topics.R
+Find_Clusters.R
+text2vec\ doc\ similarity\ example.R
+topic_lda_ldavis.R
+Topic_Model.html
+Topic_Model.md
+Topic_Model.Rmd
+topicmodel_BB.R
+topicmodel_visualize.r
+topicmodeleg.R
+topicmodels_json_ldavis.R
+.Rhistory
